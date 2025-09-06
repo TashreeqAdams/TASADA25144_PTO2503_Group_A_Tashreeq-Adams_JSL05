@@ -113,10 +113,26 @@ header {
 .header-name-div {
   display: flex;
   align-items: center;
+  width: 100%;
+}
+
+.header-add-task-button {
+  margin-left: auto;
 }
 
 .logo-mobile {
   display: none; /* Hidden on desktop; shown on smaller screens */
+}
+
+.header-add-task-button {
+  width: 164;
+  height: 48;
+  opacity: 1;
+  border-radius: 24px;
+  background-color: #635fc7;
+  border: 1px;
+  color: white;
+  cursor: pointer;
 }
 
 /* ===============
@@ -398,5 +414,17 @@ form select {
 
   .column-div {
     padding: 24px;
+  }
+
+  .header-add-task-button {
+    width: 33px;
+    height: 33px;
+    top: 16px;
+    left: 313px;
+    border-radius: 24px;
+  }
+
+  .header-add-task-button span {
+    display: none;
   }
 }

@@ -40,7 +40,3 @@ export const initialTasks = [
     status: "done",
   },
 ];
-
-const dataToStore = JSON.stringify(initialTasks);
-
-localStorage.setItem("myAppData", dataToStore);

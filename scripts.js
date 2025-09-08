@@ -65,9 +65,9 @@ function openTaskModal(task) {
   const descInput = document.getElementById("task-desc");
   const statusSelect = document.getElementById("task-status");
 
-  titleInput.value = task.title;
-  descInput.value = task.description;
-  statusSelect.value = task.status;
+  titleInput.value = task?.title || "";
+  descInput.value = task?.description || "";
+  statusSelect.value = task?.status || "";
 
   modal.showModal();
 }
@@ -95,3 +95,39 @@ function initTaskBoard() {
 
 // Wait until DOM is fully loaded
 document.addEventListener("DOMContentLoaded", initTaskBoard);
+
+// Saving data to local storage
+
+const dataToStore = JSON.stringify(initialTasks);
+
+localStorage.setItem("myAppData", dataToStore);
+
+// Modal functionality for add new task button
+
+document
+  .getElementById("header-add-task-button")
+  .addEventListener("click", openTaskModal);
+
+// get elements
+const modalTitle = document.getElementById("task-title");
+const modalDescription = document.getElementById("task-desc");
+const modalStatus = document.getElementById("task-status");
+const saveBtn = document.getElementById("modal-create-task-button");
+
+// Load tasks from localStorage (or start with an empty array)
+let newTasks = JSON.parse(localStorage.getItem("myAppData")) || [];
+
+// Save button click
+saveBtn.addEventListener("click", () => {
+  const newTask = {
+    title: modalTitle.value.trim(),
+    description: modalDescription.value.trim(),
+    status: modalStatus.value,
+  };
+
+  // Add new task to array
+  initialTasks.push(newTask);
+
+  // Save array back to localStorage
+  localStorage.setItem("myAppData", JSON.stringify(initialTasks));
+});

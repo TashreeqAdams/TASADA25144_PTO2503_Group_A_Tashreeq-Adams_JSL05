@@ -65,9 +65,9 @@ function openTaskModal(task) {
   const descInput = document.getElementById("task-desc");
   const statusSelect = document.getElementById("task-status");
 
-  titleInput.value = task?.title || "";
-  descInput.value = task?.description || "";
-  statusSelect.value = task?.status || "";
+  titleInput.value = task.title;
+  descInput.value = task.description;
+  statusSelect.value = task.status;
 
   modal.showModal();
 }
@@ -102,32 +102,36 @@ const dataToStore = JSON.stringify(initialTasks);
 
 localStorage.setItem("myAppData", dataToStore);
 
-// Modal functionality for add new task button
+// Initialize once DOM is loaded
+document.addEventListener("DOMContentLoaded", initHeaderModal);
 
-document
-  .getElementById("header-add-task-button")
-  .addEventListener("click", openTaskModal);
+// // get elements
+// const modalTitle = document.getElementById("task-title");
+// const modalDescription = document.getElementById("task-desc");
+// const modalStatus = document.getElementById("task-status");
+// const saveBtn = document.getElementById("modal-create-task-button");
 
-// get elements
-const modalTitle = document.getElementById("task-title");
-const modalDescription = document.getElementById("task-desc");
-const modalStatus = document.getElementById("task-status");
-const saveBtn = document.getElementById("modal-create-task-button");
+// // Load tasks from localStorage (or start with an empty array)
+// let newTasks = JSON.parse(localStorage.getItem("myAppData")) || [];
+// if (newTasks) renderTasks(newTasks);
 
-// Load tasks from localStorage (or start with an empty array)
-let newTasks = JSON.parse(localStorage.getItem("myAppData")) || [];
+// // Save button click
+// saveBtn.addEventListener("click", () => {
+//   const currentTasks = JSON.parse(localStorage.getItem("myAppData"));
+//   const taskCount = currentTasks?.length;
+//   const newTask = {
+//     title: modalTitle.value.trim(),
+//     description: modalDescription.value.trim(),
+//     status: modalStatus.value,
+//     id: taskCount + 1,
+//   };
 
-// Save button click
-saveBtn.addEventListener("click", () => {
-  const newTask = {
-    title: modalTitle.value.trim(),
-    description: modalDescription.value.trim(),
-    status: modalStatus.value,
-  };
+//   // Add new task to array
+//   currentTasks.push(newTask);
 
-  // Add new task to array
-  initialTasks.push(newTask);
+//   // Save array back to localStorage
+//   localStorage.setItem("myAppData", JSON.stringify(currentTasks));
 
-  // Save array back to localStorage
-  localStorage.setItem("myAppData", JSON.stringify(initialTasks));
-});
+//   // Render single task
+//   addTask(newTask);
+// });

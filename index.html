@@ -14,7 +14,9 @@
       sizes="32x32"
       href="./assets/favicon.svg"
     />
+    <script defer src="./modal.js" type="module"></script>
     <script defer src="./scripts.js" type="module"></script>
+
     <title>Kanban Task Management</title>
   </head>
 
@@ -92,9 +94,33 @@
         </div>
 
         <label for="task-title">Title</label>
+        <input type="text" id="task-title" name="title" required />
+
+        <label for="task-desc">Description</label>
+        <textarea id="task-desc" name="description" rows="4"></textarea>
+
+        <label for="task-status">Status</label>
+        <select id="task-status" name="status" required>
+          <option value="todo">todo</option>
+          <option value="doing">doing</option>
+          <option value="done">done</option>
+        </select>
+      </form>
+    </dialog>
+    <!-- Modal: Adds new Task via add new task button -->
+    <dialog id="header-task-modal">
+      <form method="dialog" id="header-task-form">
+        <div class="modal-header">
+          <h3>Task</h3>
+          <button type="button" class="close-btn" id="header-close-modal-btn">
+            &times;
+          </button>
+        </div>
+
+        <label for="task-title">Title</label>
         <input
           type="text"
-          id="task-title"
+          id="header-modal-task-title"
           name="title"
           required
           placeholder="e.g. Take chilled break"
@@ -102,7 +128,7 @@
 
         <label for="task-desc">Description</label>
         <textarea
-          id="task-desc"
+          id="header-modal-task-desc"
           name="description"
           rows="4"
           placeholder="e.g Pet your dog, have a cup of coffee, 
@@ -111,13 +137,13 @@
         ></textarea>
 
         <label for="task-status">Status</label>
-        <select id="task-status" name="status" required>
+        <select id="header-modal-task-status" name="status" required>
           <option value="todo">todo</option>
           <option value="doing">doing</option>
           <option value="done">done</option>
         </select>
 
-        <button id="modal-create-task-button" class="modal-create-task-button">
+        <button id="header-modal-task-button" class="modal-create-task-button">
           Create Task
         </button>
       </form>

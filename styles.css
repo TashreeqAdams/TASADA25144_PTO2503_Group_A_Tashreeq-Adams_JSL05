@@ -245,7 +245,8 @@ dialog {
   background: rgba(0, 0, 0, 0.3);
 }
 
-#task-modal {
+#task-modal,
+#header-task-modal {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -40%);

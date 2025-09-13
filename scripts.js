@@ -45,15 +45,21 @@ function clearExistingTasks() {
  * Groups tasks by status and appends them to their respective columns.
  * @param {Array<Object>} tasks - Array of task objects.
  */
-function renderTasks(tasks) {
+export function renderTasks(tasks) {
   tasks.forEach((task) => {
-    const container = getTaskContainerByStatus(task.status);
-    if (container) {
-      const taskElement = createTaskElement(task);
-      container.appendChild(taskElement);
-    }
+    addTask(task);
   });
 }
+
+export function addTask(task) {
+  const container = getTaskContainerByStatus(task?.status);
+  if (container) {
+    const taskElement = createTaskElement(task);
+    container.appendChild(taskElement);
+  }
+}
+
+//Header Modal
 
 /**
  * Opens the modal dialog with pre-filled task details.
@@ -88,8 +94,6 @@ function setupModalCloseHandler() {
  * Initializes the task board and modal handlers.
  */
 function initTaskBoard() {
-  clearExistingTasks();
-  renderTasks(initialTasks);
   setupModalCloseHandler();
 }
 

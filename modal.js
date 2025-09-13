@@ -48,10 +48,10 @@ saveBtn.addEventListener("click", () => {
   const currentTasks = JSON.parse(localStorage.getItem("myAppData"));
   const taskCount = currentTasks?.length;
   const newTask = {
+    id: taskCount + 1,
     title: modalTitle.value.trim(),
     description: modalDescription.value.trim(),
     status: modalStatus.value,
-    id: taskCount + 1,
   };
 
   // Add new task to array

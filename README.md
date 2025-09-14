@@ -1,50 +1,33 @@
-# JSL04 Challenge – Solution Code
+# JSL05 Challenge – Task Board with Local Storage Persistence and Task Creation
 
 ## Overview
 
-This solution refactors JSL03 by **removing all hard‑coded tasks from the HTML** and generating the board entirely through JavaScript. It also introduces a **modal dialog** that lets the user inspect (and later extend to edit) an individual task. The result is a cleaner, fully data‑driven task board that is easier to maintain and extend.
+This application is a task management system that saves tasks in local storage, ensuring that tasks remain available even after refreshing the page or reopening the application. Users can add new tasks through a modal interface, and all tasks are dynamically displayed in their respective Kanban columns ("To Do", "Doing", "Done"). The project emphasizes core JavaScript skills, including DOM manipulation, event handling, modular code structure, local storage management, and creating a responsive user interface.
 
-## Learning goals
+## Technologies include
 
-By studying the JSL04 solution you will:
+The project includes:
 
-- Learn how to keep UI data in external modules (separation of concerns).
-- Practice **DOM creation** and **querying** with `document.createElement()` and `querySelector()`.
-- Wire up **event listeners** to dynamically created elements.
-- Manage **dialog (`<dialog>`) components** for richer UX.
-- Organise code into small, single‑purpose functions.
+- HTML
+- CSS
+- JavaScript
+- GitHub
 
-## File structure
+## Features Created
 
-├── `index.html` # Contains empty column shells & modal markup
+The project includes:
 
-├── `styles.css` # Flex layout & dialog styling
+- Tasks are dynamically loaded from local storage on page load, ensuring saving across refreshes.
+- Each task is automatically placed in the correct Kanban column based on its status.
+- An "Add Task" button opens a modal for creating new tasks.
+- The modal includes fields for task title and description, a dropdown for status selection, and a submit button to add the task instantly to the board.
+- Details of tasks that saved are on the board has a separate modal for viewing.
+- Tasks added via the modal are immediately displayed without requiring a page refresh.
+- Fully responsive layout ensures smooth interaction on both desktop and mobile devices.
 
-├── `initialData.js` # Array of task objects (id, title, description, status)
+### How to Use This Project
 
-├── `scripts.js` # Board initialisation & modal logic
-
-└── `README.md #` ← you are here
-
-### `scripts.js` at a glance
-
-| Function                           | Responsibility                                         |
-| ---------------------------------- | ------------------------------------------------------ |
-| `createTaskElement(task)`          | Builds one `.task-div`, binds click handler            |
-| `getTaskContainerByStatus(status)` | Finds the `.tasks-container` inside the correct column |
-| `clearExistingTasks()`             | Empties all columns before re‑rendering                |
-| `renderTasks(tasks)`               | Loops over the dataset and appends each element        |
-| `openTaskModal(task)`              | Prefills and shows the `<dialog>` with task details    |
-| `setupModalCloseHandler()`         | Hooks the **Close** button                             |
-| `initTaskBoard()`                  | Bootstrap: clear → render → hook modal                 |
-
-## Running the solution
-
-1. **Clone / download** the repo.
-2. Open `index.html` with **Live Server** or any modern browser.
-3. Explore:
-   - Click a task card to open the modal.
-
-## License
-
-Provided for **educational purposes only**.
+1. Clone, fork, or download the repository to gain access to the project files.
+2. Open the project folder in VS Code or your preferred code editor.
+3. Open the HTML file in a live server to view the live project.
+4. Use the "Add Task" button to create new tasks, which will be saved automatically in local storage and displayed on the board.

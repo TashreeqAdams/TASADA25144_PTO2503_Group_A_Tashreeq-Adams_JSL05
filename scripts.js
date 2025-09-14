@@ -55,11 +55,9 @@ export function renderTasks(tasks) {
  * Adds a task element to the DOM inside the correct container based on the task's status.
  *
  * @param {Object} task - The task object to be added.
- * @param {string} task.id - Unique identifier for the task.
  * @param {string} task.title - Title of the task.
- * @param {string} [task.description] - Description of the task.
+ * @param {string} task.description - Description of the task.
  * @param {string} task.status - The status of the task (e.g., "todo", "doing", "done").
- * @returns {void} This function does not return a value.
  */
 export function addTask(task) {
   const container = getTaskContainerByStatus(task?.status);

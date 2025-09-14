@@ -47,10 +47,20 @@ function clearExistingTasks() {
  */
 export function renderTasks(tasks) {
   tasks.forEach((task) => {
-    addTask(task);
+    addTask(task); // calls function that renders a single task
   });
 }
 
+/**
+ * Adds a task element to the DOM inside the correct container based on the task's status.
+ *
+ * @param {Object} task - The task object to be added.
+ * @param {string} task.id - Unique identifier for the task.
+ * @param {string} task.title - Title of the task.
+ * @param {string} [task.description] - Description of the task.
+ * @param {string} task.status - The status of the task (e.g., "todo", "doing", "done").
+ * @returns {void} This function does not return a value.
+ */
 export function addTask(task) {
   const container = getTaskContainerByStatus(task?.status);
   if (container) {
@@ -58,8 +68,6 @@ export function addTask(task) {
     container.appendChild(taskElement);
   }
 }
-
-//Header Modal
 
 /**
  * Opens the modal dialog with pre-filled task details.
@@ -98,7 +106,4 @@ function initTaskBoard() {
 }
 
 // Wait until DOM is fully loaded
-document.addEventListener("DOMContentLoaded", initTaskBoard);
-
-// Initialize once DOM is loaded
 document.addEventListener("DOMContentLoaded", initTaskBoard);

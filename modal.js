@@ -6,10 +6,10 @@ import { addTask } from "./scripts.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const taskModal = document.getElementById("header-task-modal");
-  const openBtn = document.getElementById("header-add-task-button"); // your "Add Task" button
+  const openBtn = document.getElementById("header-add-task-button");
   const closeBtn = document.getElementById("header-close-modal-btn");
 
-  // ✅ Open modal
+  // Open modal
   openBtn.addEventListener("click", () => {
     // Reset fields if needed
     document.getElementById("header-modal-task-title").value = "";
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     taskModal.showModal();
   });
 
-  // ✅ Close modal
+  // Close modal
   closeBtn.addEventListener("click", () => {
     taskModal.close();
   });
@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 if (!localStorage.getItem("myAppData")) {
   const dataToStore = JSON.stringify(initialTasks);
   localStorage.setItem("myAppData", dataToStore);
-  console.log("data stored");
 }
 
 // get elements
